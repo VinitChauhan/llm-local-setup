@@ -51,7 +51,10 @@ This project provides a local setup for running Large Language Models (LLMs) usi
 
   docker-compose up -d
   
-  # Or use the quantized version for even better performance
+  # Pull llm model Or
+  docker exec -it ollama ollama pull llama3.2:3b
+  
+  # Use the quantized version for even better performance
   docker exec -it ollama ollama pull llama3.2:3b-instruct-q4_0
   
   # Direct API call
@@ -64,24 +67,16 @@ This project provides a local setup for running Large Language Models (LLMs) usi
   # Or interactive chat
   docker exec -it ollama ollama run llama3.2:3b
   
-  
-  # Or interactive chat
-  docker exec -it ollama ollama run llama3.2:3b
-  
-  
-  Access the Web UI: Open http://localhost:3000 in your browser for a ChatGPT-like interface.
+   Access the Web UI: Open http://localhost:3000 in your browser for a ChatGPT-like interface.
   
   Embedding
   
   docker-compose logs ollama-webui
   
-  # Start services
-  docker-compose up -d ollama qdrant
-  
   # Pull embedding model
   docker exec -it ollama ollama pull nomic-embed-text
 
-# Test embedding
+ Test embedding
   curl http://localhost:11434/api/embeddings -d '{
     "model": "nomic-embed-text",
     "prompt": "Hello world"
