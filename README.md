@@ -53,7 +53,7 @@ This project provides a local setup for running Large Language Models (LLMs) usi
   
   # Pull llm model Or
   docker exec -it ollama ollama pull llama3.2:3b
-  
+
   # Use the quantized version for even better performance
   docker exec -it ollama ollama pull llama3.2:3b-instruct-q4_0
   
@@ -82,10 +82,10 @@ This project provides a local setup for running Large Language Models (LLMs) usi
     "prompt": "Hello world"
   }'
 
-# Test LLM prompt (Python)
+## Test LLM prompt (Python)
   python llm-demo.py
 
-# Test embedding (Python)
+## Test embedding (Python)
   python embadding-demo.py
 ```
 
