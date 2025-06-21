@@ -79,15 +79,20 @@ This project provides a local setup for running Large Language Models (LLMs) usi
   docker-compose up -d ollama qdrant
   
   # Pull embedding model
-  docker exec -it ollama-embeddings ollama pull nomic-embed-text
-  
-  # Test embedding
+  docker exec -it ollama ollama pull nomic-embed-text
+
+# Test embedding
   curl http://localhost:11434/api/embeddings -d '{
     "model": "nomic-embed-text",
     "prompt": "Hello world"
   }'
-  
-  ```
+
+# Test LLM prompt (Python)
+  python llm-demo.py
+
+# Test embedding (Python)
+  python embadding-demo.py
+```
 
 ## Credits
 - [Ollama](https://ollama.com/)

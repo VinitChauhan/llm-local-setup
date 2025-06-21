@@ -1,5 +1,4 @@
 import requests
-#import numpy as np
 
 # For Ollama
 def get_ollama_embedding(text):
@@ -7,15 +6,11 @@ def get_ollama_embedding(text):
         "http://localhost:11434/api/embeddings",
         json={"model": "nomic-embed-text", "prompt": text}
     )
-    return response.json()["embedding"]
-
-# For TEI API
-def get_tei_embedding(text):
-    response = requests.post(
-        "http://localhost:8080/embed",
-        json={"inputs": text}
-    )
-    return response.json()[0]
+    data = response.json()
+    print(f"Ollama API response: {data}")
+    if "embedding" not in data:
+        raise ValueError("'embedding' key not found in Ollama API response.")
+    return data["embedding"]
 
 # Test
 embedding = get_ollama_embedding("This is a test sentence")
